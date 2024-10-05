@@ -1,0 +1,61 @@
+﻿@model CadastroLivros.Api.ViewModel.LivroViewModel;
+
+@{
+    ViewData["Title"] = "Criar Livro";
+}
+
+<h1>Criar Livro</h1>
+
+<form asp-action="Create" method="post" class="text-center">
+    <div class="mb-3">
+        <label asp-for="Livro.Codl" class="form-label"></label>
+        <input asp-for="Livro.Codl" class="form-control text-center" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livro.Titulo" class="form-label"></label>
+        <input asp-for="Livro.Titulo" class="form-control text-center" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livro.Editora" class="form-label"></label>
+        <input asp-for="Livro.Editora" class="form-control text-center" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livro.Edicao" class="form-label"></label>
+        <input asp-for="Livro.Edicao" class="form-control text-center" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Livro.AnoPublicacao" class="form-label"></label>
+        <input asp-for="Livro.AnoPublicacao" class="form-control text-center" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="AssuntoIds">Assuntos</label>
+        <select id="AssuntoIds" name="AssuntoIds" class="form-control text-center" multiple required>
+            @foreach (var assunto in Model.Assuntos)
+            {
+                <option value="@assunto.codAs">@assunto.Descricao</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="AutorIds">Autores</label>
+        <select id="AutorIds" name="AutorIds" class="form-control text-center" multiple required>
+            @foreach (var autor in Model.Autores)
+            {
+                <option value="@autor.CodAu">@autor.Nome</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Adicionar Livro" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,50 @@
+using Microsoft.Reporting.WebForms;
+using System;
+using System.Data;
+
+public partial class Relatorio : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            GerarRelatorio();
+        }
+    }
+
+    private void GerarRelatorio()
+    {
+        try
+        {
+            // Substitua pelo seu método que retorna o DataTable
+            DataTable dataTable = ObterDadosRelatorio();
+
+            // Configure o caminho do relatório
+            reportViewer1.LocalReport.ReportPath = Server.MapPath("~/Reports/RelatorioLivros.rdlc");
+
+            // Limpa os DataSources existentes
+            reportViewer1.LocalReport.DataSources.Clear();
+
+            // Adiciona o novo DataSource
+            ReportDataSource rds = new ReportDataSource("livrosdb", dataTable);
+            reportViewer1.LocalReport.DataSources.Add(rds);
+
+            // Atualiza o relatório
+            reportViewer1.LocalReport.Refresh();
+        }
+        catch (Exception ex)
+        {
+            // Log ou exiba o erro
+            Response.Write($"Erro: {ex.Message}");
+        }
+    }
+
+    private DataTable ObterDadosRelatorio()
+    {
+        // Lógica para preencher o DataTable com os dados do seu banco de dados
+        DataTable dt = new DataTable();
+        // Exemplo: dt.Columns.Add("Titulo");
+        // Adicionar dados ao DataTable
+        return dt;
+    }
+}

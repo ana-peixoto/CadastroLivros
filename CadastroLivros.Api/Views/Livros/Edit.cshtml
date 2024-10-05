@@ -1,0 +1,73 @@
+﻿@model CadastroLivros.Api.ViewModel.LivroViewModel
+
+@{
+    ViewData["Title"] = "Editar Livro";
+}
+
+<h1>Editar Livro</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Livro.Codl" />
+    
+    <div class="form-group">
+        <label asp-for="Livro.Titulo" class="control-label"></label>
+        <input asp-for="Livro.Titulo" class="form-control" />
+        <span asp-validation-for="Livro.Titulo" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Livro.Editora" class="control-label"></label>
+        <input asp-for="Livro.Editora" class="form-control" />
+        <span asp-validation-for="Livro.Editora" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Livro.Edicao" class="control-label"></label>
+        <input asp-for="Livro.Edicao" class="form-control" />
+        <span asp-validation-for="Livro.Edicao" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Livro.AnoPublicacao" class="control-label"></label>
+        <input asp-for="Livro.AnoPublicacao" class="form-control" />
+        <span asp-validation-for="Livro.AnoPublicacao" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="AssuntoIds">Assuntos</label>
+        <select id="AssuntoIds" name="AssuntoIds" class="form-control text-center" multiple required>
+            @foreach (var assunto in Model.Assuntos)
+            {
+                var selected = Model.Livro.Assuntos != null && Model.Livro.Assuntos.Any(a => a.codAs == assunto.codAs);
+                <option value="@assunto.codAs" selected="@selected">
+                    @assunto.Descricao
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="AutorIds">Autores</label>
+        <select id="AutorIds" name="AutorIds" class="form-control text-center" multiple required>
+            @foreach (var autor in Model.Autores)
+            {
+                var selected = Model.Livro.Autores != null && Model.Livro.Autores.Any(a => a.CodAu == autor.CodAu);
+                <option value="@autor.CodAu" selected="@selected" >
+                    @autor.Nome
+                </option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <input type="submit" value="Salvar" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

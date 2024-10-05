@@ -1,0 +1,29 @@
+﻿@model IEnumerable<CadastroLivros.Api.Models.Assunto>
+
+<h1>Lista de Assuntos</h1>
+
+<a asp-action="Create">Cadastrar Assunto</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var assunto in Model)
+        {
+            <tr>
+                <td>@assunto.codAs</td>
+                <td>@assunto.Descricao</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@assunto.codAs">Detalhes</a> |
+                    <a asp-action="Edit" asp-route-id="@assunto.codAs">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@assunto.codAs">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

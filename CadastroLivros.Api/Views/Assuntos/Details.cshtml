@@ -1,0 +1,19 @@
+﻿@model CadastroLivros.Api.Models.Assunto
+
+<h1>Detalhes do Assunto</h1>
+
+<div>
+    <h4>Assunto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Código</dt>
+        <dd class="col-sm-10">@Model.codAs</dd>
+
+        <dt class="col-sm-2">Descrição</dt>
+        <dd class="col-sm-10">@Model.Descricao</dd>
+    </dl>
+</div>
+
+
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>
+

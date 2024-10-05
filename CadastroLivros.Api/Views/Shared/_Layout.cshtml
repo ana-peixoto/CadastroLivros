@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Cadastro de Livros</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Menu</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link list-link" href="/livros" data-target="#listaLivros">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link list-link" href="/autores" data-target="#listaAutores">Autores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link list-link" href="/assuntos" data-target="#listaAssuntos">Assuntos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5 text-center">
+        <h2>Bem-vindo ao sistema de Cadastro de Livros!</h2>
+        <img src="https://img.icons8.com/color/48/000000/book.png" alt="Livro" class="img-fluid my-4" style="max-width: 100px;">
+
+        @RenderBody()
+    </main>
+
+    <footer class="bg-light text-center py-3">
+        <p>© 2024 Cadastro de Livros. Todos os direitos reservados.</p>
+    </footer>
+
+ 
+ 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+       /* $(document).ready(function () {
+            $('.list-link').on('click', function (event) {
+                event.preventDefault(); 
+                const target = $(this).data('target');
+
+                $('#listaLivros').empty();
+                $('#listaAutores').empty();
+                $('#listaAssuntos').empty();
+
+              
+                $('#listaLivros, #listaAutores, #listaAssuntos').hide();
+
+                // Carrega o conteúdo de cada lista conforme clicado
+                if (target === "#listaLivros") {
+                    
+                } else if (target === "#listaAutores") {
+                    $('#listaAutores').html(`
+                                <a href="#" class="list-group-item">Autor 1</a>
+                                <a href="#" class="list-group-item">Autor 2</a>
+                                <a href="#" class="list-group-item">Autor 3</a>
+                            `).show();
+                } else if (target === "#listaAssuntos") {
+                    $('#listaAssuntos').html(`
+                                <a href="#" class="list-group-item">Assunto 1</a>
+                                <a href="#" class="list-group-item">Assunto 2</a>
+                                <a href="#" class="list-group-item">Assunto 3</a>
+                            `).show();
+                }
+            });
+        });*/
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
