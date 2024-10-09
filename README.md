@@ -37,7 +37,8 @@ Este projeto é um sistema de cadastro de livros, autores e assuntos, desenvolvi
    "ConnectionStrings": {
     "DefaultConnection": "Server=seu_servidor;Database=CadastroLivros;User Id=seu_usuario;Password=sua_senha;"
    }
-
+   ```
+   
     - Caso prefira usar o docker para levantar o MySql, mantenha a connection string do projeto e rode o comando:
    ```bash
    docker run --name mysql -e MYSQL_DATABASE=livrosdb -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
