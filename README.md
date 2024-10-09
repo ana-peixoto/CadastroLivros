@@ -41,7 +41,14 @@ Este projeto é um sistema de cadastro de livros, autores e assuntos, desenvolvi
    
     - Caso prefira usar o docker para levantar o MySql, mantenha a connection string do projeto e rode o comando:
    ```bash
-   docker run --name mysql -e MYSQL_DATABASE=livrosdb -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
+   docker run --name mysql -e MYSQL_DATABASE=livrosdb -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:latest
+   ```
+
+   - Em seguida, inicie o migrations rodando o comando dentro do diretório do projeto:
+   ```bash
+   dotnet ef migrations add InitialCreate
+   ```
+     
 
 4. Crie o banco de dados e aplique as migrations:
    ```bash
