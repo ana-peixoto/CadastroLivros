@@ -37,14 +37,15 @@ Este projeto é um sistema de cadastro de livros, autores e assuntos, desenvolvi
    "ConnectionStrings": {
     "DefaultConnection": "Server=seu_servidor;Database=CadastroLivros;User Id=seu_usuario;Password=sua_senha;"
    }
-   - Caso prefira usar o docker para levantar o MySql, mantenha a connection string do projeto e rode o comando:
+
+    - Caso prefira usar o docker para levantar o MySql, mantenha a connection string do projeto e rode o comando:
    ```bash
    docker run --name mysql -e MYSQL_DATABASE=livrosdb -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
 
-3. Crie o banco de dados e aplique as migrations:
+4. Crie o banco de dados e aplique as migrations:
    ```bash
    dotnet ef database update
-4. Execute a aplicação e acesse pelo seu navegador
+5. Execute a aplicação e acesse pelo seu navegador
 
 ### Contribuições
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
